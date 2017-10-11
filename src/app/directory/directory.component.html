@@ -1,0 +1,40 @@
+
+<!--
+<p [ngClass]="{'blue':true,'red': false,'underline':true}">
+  directory works!
+</p>
+
+<p *ngIf="true">Only show if test is true
+
+</p>
+
+<style>
+.blue{color: blue;}
+.red{color: red;}
+.underline{text-decoration: underline;}
+</style>
+
+
+-->
+
+
+<h2>Anime Listing</h2>
+<form id="filter">
+<label>Filter anime by names:</label>
+<input type="text" [(ngModel)]="anime" name="term"  />
+</form>
+<ul id="ninja-listing">
+  <li *ngFor="let anime of animes | filter:anime">
+   <div class="single-ninja">
+       <span >#{{anime.rank}}</span>
+        <!--name-->
+         <h3>{{anime.name | uppercase}}</h3>
+        
+   </div>
+  </li>
+</ul>
+<form id="add-ninja">
+<input type="text" [(ngModel)]="name" name="term" />
+<input type="text" [(ngModel)]="rank" name="term" />
+<button (click)="fbPostData(name,rank)">Add Anime</button>
+</form>
